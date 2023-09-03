@@ -1,7 +1,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode');
-const OPENAI_API_KEY = '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';
+const OPENAI_API_KEY = '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';
 // const OPENAI_API_URL = 'https://api.openai.com/v1/engines/grammar-correct';
 const OPENAI_API_URL = 'https://api.openai.com/v1/engines/text-davinci-002/completions';
 
@@ -20,7 +20,7 @@ function activate(context) {
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with  registerCommand
 	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('grammar-correction-open-ai.correctGrammar', function () {
+	let disposable = vscode.commands.registerCommand('grammar-correction', function () {
 		const panel = vscode.window.createWebviewPanel(
 			'formSubmissionExtension',
 			'Form Submission',
@@ -71,7 +71,7 @@ function getWebviewContent() {
 	}
 </style>
     <body>
-	<h2>Grammar Correction Submit Text and Display Below</h2>
+	<h2>Grammar Correction Submit Text and Display Below </h2>
 	<form id="inputForm">
 		<textarea id="text" name="text" rows="4" cols="50"></textarea><br><br>
 		<input type="submit" id="submitButton" value="Submit">
@@ -91,6 +91,7 @@ function getWebviewContent() {
                     const correctedText = await app(text);
                     submittedText.innerHTML = "<p><strong>Corrected Text:</strong></p><p>" + correctedText + "</p>";
                 } catch (error) {
+                    submittedText.innerHTML = "<p><strong>Error</strong></p><p>" "</p>";
                     console.error('Error:', error);
                 }
             });
@@ -98,7 +99,7 @@ function getWebviewContent() {
             async function app(text) {
                 const requestData = {
                     prompt: text,
-                    max_tokens: 100,
+                    max_tokens: 1500,
                     temperature: 0.7,
                     n: 1
                 };
@@ -106,7 +107,7 @@ function getWebviewContent() {
                 const requestOptions = {
                     method: "POST",
                     headers: {
-                        Authorization: 'Bearer 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',
+                        Authorization: 'Bearer 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',
                         "Content-Type": "application/json"
                     },
                     body: JSON.stringify(requestData)
