@@ -16,7 +16,7 @@ This Visual Studio Code extension allows you to correct grammar and improve your
 ## Usage
 
 1. Run the extension using the "Run Extension" configuration or `F5`.
-2. Open the Command Palette (`Ctrl+Shift+P`) and search for "Correction Grammar using OpenAi" Either You Search CorrectGrammar .
+2. Open the Command Palette (`Ctrl+Shift+P`) and search for "Correct Grammar with OpenAI" Either You Search CorrectGrammar .
 3. Select the "Grammar Correction: Correct Grammar" command to open the form.
 4. Enter your text in the textarea and click "Submit".
 5. The grammar-corrected text will be displayed below the form.

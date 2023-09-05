@@ -2,7 +2,7 @@
   "name": "grammar-correction-open-ai",
   "displayName": "Grammar correction Open AI",
   "description": "Convert ungrammatical statements into standard English.",
-  "version": "0.0.2",
+  "version": "0.1.6",
   "engines": {
     "vscode": "^1.81.0"
   },
@@ -10,11 +10,11 @@
   "categories": [
     "Other"
   ],
+  "activationEvents": [
+    "onCommand:grammar-correction-ai.correctGrammar"
+  ],
   "pricing": "Free",
   "icon": "grammar.png",
-  "activationEvents": [
-    "onCommand:grammar-correction-open-ai.correctGrammar"
-  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/microsoft/vgit"
@@ -23,12 +23,20 @@
   "contributes": {
     "commands": [
       {
-        "command": "grammar-correction-open-ai.correctGrammar",
-        "title": "Correct Grammar using OpenAI",
-        "category": "Extensions"
+        "command": "grammar-correction-ai.correctGrammar",
+        "title": "Correct Grammar with OpenAI"
       }
-    ]
-  },
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "grammar-correction-ai.correctGrammar",
+          "when": "editorHasTextSelection"
+        }
+      ]
+    }
+  }
+,  
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",
